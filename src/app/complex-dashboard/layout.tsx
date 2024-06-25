@@ -4,6 +4,7 @@ type LayoutProps = {
   notifications: React.ReactNode;
   users: React.ReactNode;
   revenue: React.ReactNode;
+  login: React.ReactNode;
 };
 
 const DashboardLayout = ({
@@ -11,8 +12,12 @@ const DashboardLayout = ({
   notifications,
   users,
   revenue,
+  login,
 }: LayoutProps) => {
-  return (
+
+  const isLoggedIn = true;
+
+  return isLoggedIn ? (
     <main>
       <div>{children}</div>
       <div style={{ display: 'flex' }}>
@@ -23,6 +28,8 @@ const DashboardLayout = ({
         <div style={{ display: 'flex', flex: 1 }}>{notifications}</div>
       </div>
     </main>
+  ): (
+    login
   );
 }
 
